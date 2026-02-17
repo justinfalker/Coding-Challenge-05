@@ -39,3 +39,19 @@ function processPayroll(employee) {
     netPay: netPay
   };
 }
+
+console.log("---- Payroll For Each Employee ----")
+
+employees.forEach(employee => {
+  const payroll = processPayroll(employee);
+
+  
+console.log(
+`Name: ${payroll.name}
+Base Pay: $${payroll.basePay.toFixed(2)}
+Overtime Pay: $${payroll.overtimePay.toFixed(2)}
+Gross Pay: $${payroll.grossPay.toFixed(2)}
+Net Pay: $${payroll.netPay.toFixed(2)}`
+  );
+});
+
