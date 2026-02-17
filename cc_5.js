@@ -25,3 +25,17 @@ function calculateTaxes(grossPay) {
   return grossPay * 0.15;
 }
 
+function processPayroll(employee) {
+  const basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+  const overtimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+  const grossPay = basePay + overtimePay;
+  const netPay = grossPay - calculateTaxes(grossPay);
+
+  return {
+    name: employee.name,
+    basePay: basePay,
+    overtimePay: overtimePay,
+    grossPay: grossPay,
+    netPay: netPay
+  };
+}
